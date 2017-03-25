@@ -19,7 +19,7 @@ namespace Step1WebApp.Controllers
 			{
 				// TODO: Insert add message to queue logic here
 
-				return RedirectToAction("Index");
+				return RedirectToAction("Index", "Home");
 			}
 
 			return View(message);
