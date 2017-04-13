@@ -1,6 +1,6 @@
 using System.Web.Mvc;
 
-namespace Step1WebApp.Controllers
+namespace WebApp.Controllers
 {
 	public class HomeController : Controller
 	{

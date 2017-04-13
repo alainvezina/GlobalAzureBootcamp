@@ -1,6 +1,6 @@
 using System.Web.Optimization;
 
-namespace Step1WebApp
+namespace WebApp
 {
 	public class BundleConfig
 	{

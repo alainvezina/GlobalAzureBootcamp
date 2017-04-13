@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Step1WebApp.Models
+namespace WebApp.Models
 {
 	public class QueueMessageModel
 	{

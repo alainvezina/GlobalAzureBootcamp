@@ -1,7 +1,7 @@
 using System.Web.Mvc;
 using Step1WebApp.Models;
 
-namespace Step1WebApp.Controllers
+namespace WebApp.Controllers
 {
 	public class QueueController : Controller
 	{
