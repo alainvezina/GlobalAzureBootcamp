@@ -1,7 +1,7 @@
-﻿using System.Web;
+using System.Web;
 using System.Web.Mvc;
 
-namespace Step1WebApp
+namespace WebApp
 {
 	public class FilterConfig
 	{
