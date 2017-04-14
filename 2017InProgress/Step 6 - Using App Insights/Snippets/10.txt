@@ -1,0 +1,45 @@
+
+    public class ServiceException : Exception
+    {
+        public ServiceException() : base("Service Exception") { }
+        public ServiceException(Exception inner) : base("Service Exception", inner) { }
+    }
+
+    public class SomeService
+    {
+        public static void ThrowAnExceptionPlease()
+        {
+            var dependency = new DependencyService();
+            var success = dependency.DoSomeSlowWork();
+            throw new ServiceException();
+        }
+
+        public static void VerySlowCall()
+        {
+            var success = false;
+            var telemetry = new TelemetryClient();
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                var dependency = new DependencyService();
+                success = dependency.DoSomeSlowWork();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("DependencyService", "DoSomeWork", startTime, timer.Elapsed, success);
+            }
+        }
+
+    }
+
+    public class DependencyService
+    {
+        public bool DoSomeSlowWork()
+        {
+            System.Threading.Thread.Sleep(5000);
+            return true;
+        }
+    }
+

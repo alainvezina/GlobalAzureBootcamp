@@ -1,0 +1,47 @@
+1 - Add App Insights to the project
+2 - Show the 4 items underneath the ApplicationInsights.config file
+3 - Show the module added in the web.config file
+4 - Get the instrumentation key and add it to the web.config 
+
+    <!-- Overwritten by Portal App Settings -->
+    <add key="ApplicationInsightInstrumentationKey" value="your instrumentation key" />
+
+5 - Execute the application and see the logged data in App Insights.
+
+6 - Add some JS to track Client Side
+
+
+<script type="text/javascript">  
+var appInsights=window.appInsights||function(config)
+{    
+	function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t    }(
+
+{        instrumentationKey:"48532dcb-aa64-4bad-9672-340730fe76aa"    });          
+
+ window.appInsights=appInsights;    appInsights.trackPageView();</script>
+
+7 - Go into IE or Chrome - do F12 and show the calls to AppInsights.
+
+8 - Go to App Insights and show the Overview with already some data in it
+
+9 - Application Map - dependencies - custom dependencies - exceptions - custom event 
+
+9.1 - Add the class SomeService and ServiceException
+9.2 - Add a new controller to call the service (ServiceController from Empty Controller) 
+9.3 - Add a new view Index under the service folder
+9.4 - Show the failed request from Visual Studio - click on the error and it will open the file that threw the exception - when the failed request is available in the portal, drill down to the bottom of it.
+9.5 - Demonstrate how we can handle the exception and still log it
+9.6 - Go to metrics explorer in the portal and display exceptions - drill down in the exceptions
+
+
+10 - Dependencies - show them  MAP
+10.1 add a method to the service with the dependency class and call it from the contoller
+10.2 see the dependency log in the portal - click on ... and related metrics 
+
+11 - Add custom event
+
+12 - a little bit of analytics
+
+
+
+

@@ -1,0 +1,48 @@
+ public class ServiceException : Exception
+    {
+        public ServiceException() : base("Service Exception") { }
+        public ServiceException(Exception inner) : base("Service Exception", inner) { }
+    }
+
+    public class SomeService
+    {
+        public static void ThrowAnExceptionPlease()
+        {
+            throw new ServiceException();
+        }
+    }
+
+
+
+---- add to the controller
+
+Services.SomeService.ThrowAnExceptionPlease();
+
+---- the view code
+
+@{
+    ViewBag.Title = "ViewService";
+}
+
+<h2>Hello!!!!</h2>
+
+----
+
+In the _layout file, add this line after line 37
+         <li>@Html.ActionLink("Service", "Index", "Service")</li>
+
+----
+
+replace the code of the Index method in the controller
+
+ 	    try
+            {                
+                Services.SomeService.ThrowAnExceptionPlease();
+            }
+            catch(Exception ex)
+            {
+                var client = new TelemetryClient();
+                client.TrackException(ex);
+            }
+            return View();
+
