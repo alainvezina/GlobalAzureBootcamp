@@ -1,14 +1,11 @@
 1 - Add App Insights to the project
 2 - Show the 4 items underneath the ApplicationInsights.config file
 3 - Show the module added in the web.config file
-4 - Get the instrumentation key and add it to the web.config 
-
-    <!-- Overwritten by Portal App Settings -->
-    <add key="ApplicationInsightInstrumentationKey" value="your instrumentation key" />
+4 - Get the instrumentation key and add it to the web.config  (snnipets/06.1.txt)
 
 5 - Execute the application and see the logged data in App Insights.
 
-6 - Add some JS to track Client Side
+6 - Add some JS to track Client Side  (snnipets/06.2.txt)
 
 
 <script type="text/javascript">  
@@ -38,9 +35,15 @@ var appInsights=window.appInsights||function(config)
 10.1 add a method to the service with the dependency class and call it from the contoller
 10.2 see the dependency log in the portal - click on ... and related metrics 
 
-11 - Add custom event
+11 - Add custom event in the Azure Function - show the custom event 
 
 12 - a little bit of analytics
+12.0 All predefined queries
+12.1 All failed requests
+12.2 Custom events
+12.3 share a query or add it to the dashboard.
+
+Talk about sampling - profiling - alerts 
 
 
 
